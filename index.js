@@ -1,21 +1,18 @@
+// استيراد المكتبة
 const TelegramBot = require('node-telegram-bot-api');
-require('dotenv').config();
 
-// استيراد التوكن من ملف .env
-const token = process.env.TELEGRAM_BOT_TOKEN;
+// توكن البوت الخاص بك (استبدله بتوكنك)
+const token = '7535227356:AAFLDYFdcbxFMa9RuP82ukXBZIvSUK5uDKU';
 
 // إنشاء البوت
 const bot = new TelegramBot(token, { polling: true });
 
-// الاستجابة للرسائل النصية
+// التعامل مع الرسائل الواردة
 bot.on('message', (msg) => {
-    const chatId = msg.chat.id;
-    const text = msg.text;
+    const chatId = msg.chat.id; // معرف المحادثة
 
-    // مثال: إذا كتب المستخدم "مرحبا" يرد البوت برسالة ترحيبية
-    if (text.toLowerCase() === 'مرحبا') {
-        bot.sendMessage(chatId, 'أهلاً بك في البوت!');
-    } else {
-        bot.sendMessage(chatId, 'مرحبًا! كيف يمكنني مساعدتك؟');
-    }
+    // إرسال الرد "هاي"
+    bot.sendMessage(chatId, 'هاي!');
 });
+
+console.log('البوت يعمل الآن...');
